@@ -1,0 +1,36 @@
+#/control/verbose 2
+#/tracking/verbose 3
+#/process/optical/verbose
+#/process/optical/scintillation/verbose
+#
+#/process/optical/scintillation/setByParticleType
+#/process/optical/scintillation/setTrackSecondariesFirst
+#/process/optical/scintillation/setTrackInfo
+#/process/optical/scintillation/setStackPhotons
+#
+/run/initialize
+#
+#   particle type
+/gps/particle mu-
+
+#   energy properties
+/gps/ene/type Mono
+#/gps/ene/mono 5000 keV
+#/gps/ene/mono 10 keV
+/gps/ene/mono 1000 keV
+
+#    direction, position, angular dist
+#/gps/direction -1 0 0
+/gps/position 10 0 0 cm
+/gps/pos/type Point
+/gps/ang/type iso
+
+#/run/beamOn 1
+
+#simulates 10 primary particles in 1 event 
+#/gps/number 10
+#/run/beamOn 1 
+
+#simulates 1 primary particle in each of the 10 events 
+/gps/number 1
+/run/beamOn 1000
